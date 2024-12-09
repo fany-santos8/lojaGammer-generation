@@ -15,7 +15,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "tb_produto")
-@Getter 
+@Getter
 @Setter
 public class Produto {
 
@@ -24,20 +24,18 @@ public class Produto {
 	private Long id;
 
 	@NotBlank(message = "O atributo nome é obrigatório!")
-	@Size(min = 5, max = 100, message = "O atributo nome deve conter no mínimo 10 e no máximo 1000 caracteres!")
+	@Size(min = 5, max = 100, message = "O atributo nome deve conter no mínimo 5 e no máximo 1000 caracteres!")
 	private String nome;
-	
+
 	@NotBlank(message = "O atributo descrição é obrigatório!")
 	@Size(min = 10, max = 1000, message = "O atributo texto deve conter no mínimo 10 e no máximo 1000 caracteres!")
 	private String descricao;
- 
+
 	@NotBlank(message = "O atributo preço é obrigatório!")
 	private Double preco;
 
 	@ManyToOne
-    @JsonIgnoreProperties("produtos")
+	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
-	
+
 }
-
-
